@@ -11,6 +11,7 @@
 
   <body>
     <nav>
+      <h1>{{ .Site.Title }}</h1>
     <ul class="menu">
       {{ range .Site.Menus.main }}
       <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>

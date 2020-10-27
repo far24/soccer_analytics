@@ -30,7 +30,7 @@ menu:
 
 params:
   description: "A website built through Hugo and blogdown."
-  footer: "&copy; [Fahim Ahmed]() 2017 -- 2020 | [Github](https://github.com/far24) | [Twitter](https://twitter.com/apitaph)"
+  footer: "&copy; Fahim Ahmed 2020 | [Github](https://github.com/far24) | [Twitter](https://twitter.com/apitaph)"
 
 markup:
   goldmark:
