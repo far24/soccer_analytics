@@ -1,7 +1,7 @@
 ---
 title: "Tools for Soccer Analytics"
 date: 2020-10-26T21:16:24-04:00
-draft: true
+draft: false
 tags: ["soccer analytics", "tools"]
 ---
 
