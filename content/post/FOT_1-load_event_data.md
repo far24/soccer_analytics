@@ -15,7 +15,7 @@ This specific script will teach you:
 ## Tutorial
 
 
-```
+```python
 import json
 
 #Load the competition file
@@ -32,7 +32,7 @@ with open('G:\\University of South Carolina\\HOW TO\\Static Site\\Hugo\\soccer_a
 ```
 
 
-```
+```python
 #Print all match results
 for match in matches:
     home_team_name=match['home_team']['home_team_name']
@@ -98,7 +98,7 @@ for match in matches:
     
 
 
-```
+```python
 #Now lets find a match we are interested in
 home_team_required ="England Women's"
 away_team_required ="Sweden Women's"
@@ -121,7 +121,7 @@ print(home_team_required + ' vs ' + away_team_required + ' has id:' + str(match_
 1. Edit the code above to print out the result list for the Mens World cup 
 
 
-```
+```python
 # find ID for FIFA World Cup  (i.e., Men's World Cup)
 req_competition_name = "FIFA World Cup"
 competition_id=-999
