@@ -42,28 +42,28 @@ This specific script will teach you:
 2) how load data using json library
 3) how to extract data (of your interest) from the data file</p>
 <h2 id="tutorial">Tutorial</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> json
+<pre><code>import json
 
-<span style="color:#75715e">#Load the competition file</span>
-<span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;G:</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">University of South Carolina</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">HOW TO</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Static Site</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Hugo</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">soccer_analytics</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">data</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">statsbomb</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">competitions.json&#34;</span>) <span style="color:#66d9ef">as</span> f:
-    competitions <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>load(f)
+#Load the competition file
+with open(&quot;G:\\University of South Carolina\\HOW TO\\Static Site\\Hugo\\soccer_analytics\\data\\statsbomb\\competitions.json&quot;) as f:
+    competitions = json.load(f)
 
 
-<span style="color:#75715e">#Womens World Cup 2019 has competition ID 72</span>
-competition_id<span style="color:#f92672">=</span><span style="color:#ae81ff">72</span>
+#Womens World Cup 2019 has competition ID 72
+competition_id=72
 
-<span style="color:#75715e">#Load the list of matches for this competition</span>
-<span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;G:</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">University of South Carolina</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">HOW TO</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Static Site</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Hugo</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">soccer_analytics</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">data</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">statsbomb</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">matches</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span>str(competition_id)<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">30.json&#39;</span>) <span style="color:#66d9ef">as</span> f:
-    matches <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>load(f)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Print all match results</span>
-<span style="color:#66d9ef">for</span> match <span style="color:#f92672">in</span> matches:
-    home_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;home_team&#39;</span>][<span style="color:#e6db74">&#39;home_team_name&#39;</span>]
-    away_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;away_team&#39;</span>][<span style="color:#e6db74">&#39;away_team_name&#39;</span>]
-    home_score<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;home_score&#39;</span>]
-    away_score<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;away_score&#39;</span>]
-    describe_text <span style="color:#f92672">=</span> home_team_name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; [&#39;</span>  <span style="color:#f92672">+</span> str(home_score) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;-&#39;</span> <span style="color:#f92672">+</span> str(away_score) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;] &#39;</span> <span style="color:#f92672">+</span> away_team_name
-    <span style="color:#66d9ef">print</span>(describe_text)
-</code></pre></div><pre><code>Sweden Women's [1-0] Canada Women's
+#Load the list of matches for this competition
+with open('G:\\University of South Carolina\\HOW TO\\Static Site\\Hugo\\soccer_analytics\\data\\statsbomb\\matches\\'+str(competition_id)+'\\30.json') as f:
+    matches = json.load(f)
+</code></pre><pre><code>#Print all match results
+for match in matches:
+    home_team_name=match['home_team']['home_team_name']
+    away_team_name=match['away_team']['away_team_name']
+    home_score=match['home_score']
+    away_score=match['away_score']
+    describe_text = home_team_name + ' ['  + str(home_score) + '-' + str(away_score) + '] ' + away_team_name
+    print(describe_text)
+</code></pre><pre><code>Sweden Women's [1-0] Canada Women's
 Cameroon Women's [2-1] New Zealand Women's
 Germany Women's [3-0] Nigeria Women's
 England Women's [1-2] Sweden Women's
@@ -116,48 +116,48 @@ Norway Women's [0-3] England Women's
 England Women's [1-2] United States Women's
 Netherlands Women's [1-0] Sweden Women's
 </code></pre>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Now lets find a match we are interested in</span>
-home_team_required <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;England Women&#39;s&#34;</span>
-away_team_required <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sweden Women&#39;s&#34;</span>
-match_id_required <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">999</span>
+<pre><code>#Now lets find a match we are interested in
+home_team_required =&quot;England Women's&quot;
+away_team_required =&quot;Sweden Women's&quot;
+match_id_required = -999
 
-<span style="color:#66d9ef">for</span> match <span style="color:#f92672">in</span> matches:
-    home_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;home_team&#39;</span>][<span style="color:#e6db74">&#39;home_team_name&#39;</span>]
-    away_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;away_team&#39;</span>][<span style="color:#e6db74">&#39;away_team_name&#39;</span>]
-    <span style="color:#66d9ef">if</span> (home_team_name<span style="color:#f92672">==</span>home_team_required) <span style="color:#f92672">and</span> (away_team_name<span style="color:#f92672">==</span>away_team_required):
-        match_id_required <span style="color:#f92672">=</span> match[<span style="color:#e6db74">&#39;match_id&#39;</span>]
+for match in matches:
+    home_team_name=match['home_team']['home_team_name']
+    away_team_name=match['away_team']['away_team_name']
+    if (home_team_name==home_team_required) and (away_team_name==away_team_required):
+        match_id_required = match['match_id']
 
-<span style="color:#66d9ef">print</span>(home_team_required <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; vs &#39;</span> <span style="color:#f92672">+</span> away_team_required <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; has id:&#39;</span> <span style="color:#f92672">+</span> str(match_id_required))
-</code></pre></div><pre><code>England Women's vs Sweden Women's has id:69301
+print(home_team_required + ' vs ' + away_team_required + ' has id:' + str(match_id_required))
+</code></pre><pre><code>England Women's vs Sweden Women's has id:69301
 </code></pre>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>Edit the code above to print out the result list for the Mens World cup</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># find ID for FIFA World Cup  (i.e., Men&#39;s World Cup)</span>
-req_competition_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;FIFA World Cup&#34;</span>
-competition_id<span style="color:#f92672">=-</span><span style="color:#ae81ff">999</span>
+<pre><code># find ID for FIFA World Cup  (i.e., Men's World Cup)
+req_competition_name = &quot;FIFA World Cup&quot;
+competition_id=-999
 
-<span style="color:#66d9ef">for</span> competition <span style="color:#f92672">in</span> competitions:
-    <span style="color:#66d9ef">if</span> (competition[<span style="color:#e6db74">&#39;competition_name&#39;</span>] <span style="color:#f92672">==</span> req_competition_name):
-        competition_id <span style="color:#f92672">=</span> competition[<span style="color:#e6db74">&#39;competition_id&#39;</span>]
+for competition in competitions:
+    if (competition['competition_name'] == req_competition_name):
+        competition_id = competition['competition_id']
        
-<span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;Competition ID for Men&#39;s WC: {competition_id}&#34;</span>)
+print(f&quot;Competition ID for Men's WC: {competition_id}&quot;)
 
-<span style="color:#75715e">#Load the list of matches for Men&#39;s WC competition</span>
-<span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;G:</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">University of South Carolina</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">HOW TO</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Static Site</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Hugo</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">soccer_analytics</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">data</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">statsbomb</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">matches</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span>str(competition_id)<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">3.json&#39;</span>) <span style="color:#66d9ef">as</span> f:
-    matches <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>load(f)        
+#Load the list of matches for Men's WC competition
+with open('G:\\University of South Carolina\\HOW TO\\Static Site\\Hugo\\soccer_analytics\\data\\statsbomb\\matches\\'+str(competition_id)+'\\3.json') as f:
+    matches = json.load(f)        
 
 
-<span style="color:#75715e">#Print all match results</span>
-<span style="color:#66d9ef">for</span> match <span style="color:#f92672">in</span> matches:
-    home_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;home_team&#39;</span>][<span style="color:#e6db74">&#39;home_team_name&#39;</span>]
-    away_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;away_team&#39;</span>][<span style="color:#e6db74">&#39;away_team_name&#39;</span>]
-    home_score<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;home_score&#39;</span>]
-    away_score<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;away_score&#39;</span>]
-    describe_text <span style="color:#f92672">=</span> home_team_name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; [&#34;</span> <span style="color:#f92672">+</span> str(home_score) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;-&#39;</span> <span style="color:#f92672">+</span> str(away_score) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;] &#34;</span> <span style="color:#f92672">+</span>  away_team_name
-    <span style="color:#66d9ef">print</span>(describe_text)
-</code></pre></div><pre><code>Competition ID for Men's WC: 43
+#Print all match results
+for match in matches:
+    home_team_name=match['home_team']['home_team_name']
+    away_team_name=match['away_team']['away_team_name']
+    home_score=match['home_score']
+    away_score=match['away_score']
+    describe_text = home_team_name + &quot; [&quot; + str(home_score) + '-' + str(away_score) + &quot;] &quot; +  away_team_name
+    print(describe_text)
+</code></pre><pre><code>Competition ID for Men's WC: 43
 Croatia [1-1] Denmark
 Nigeria [2-0] Iceland
 Poland [0-3] Colombia

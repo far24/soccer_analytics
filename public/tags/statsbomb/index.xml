@@ -18,7 +18,7 @@
       
       <guid>/post/2021/05/19/01-loading-statsbomb-data/</guid>
       <description>This file shows how to explore data from statsbomb. The statsbomb data is in &amp;ldquo;json&amp;rdquo; format. This specific script will teach you: 1) how to load json library 2) how load data using json library 3) how to extract data (of your interest) from the data file
-Tutorial import json #Load the competition file with open(&amp;#34;G:\\University of South Carolina\\HOW TO\\Static Site\\Hugo\\soccer_analytics\\data\\statsbomb\\competitions.json&amp;#34;) as f: competitions = json.load(f) #Womens World Cup 2019 has competition ID 72 competition_id=72 #Load the list of matches for this competition with open(&amp;#39;G:\\University of South Carolina\\HOW TO\\Static Site\\Hugo\\soccer_analytics\\data\\statsbomb\\matches\\&amp;#39;+str(competition_id)+&amp;#39;\\30.</description>
+Tutorial import json#Load the competition filewith open(&amp;quot;G:\\University of South Carolina\\HOW TO\\Static Site\\Hugo\\soccer_analytics\\data\\statsbomb\\competitions.json&amp;quot;) as f:competitions = json.load(f)#Womens World Cup 2019 has competition ID 72competition_id=72#Load the list of matches for this competitionwith open(&#39;G:\\University of South Carolina\\HOW TO\\Static Site\\Hugo\\soccer_analytics\\data\\statsbomb\\matches\\&#39;+str(competition_id)+&#39;\\30.</description>
     </item>
     
   </channel>
