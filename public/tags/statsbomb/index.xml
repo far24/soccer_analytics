@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>FA Soccer</title>
-    <link>/</link>
-    <description>Recent content on FA Soccer</description>
+    <title>statsbomb on FA Soccer</title>
+    <link>/tags/statsbomb/</link>
+    <description>Recent content in statsbomb on FA Soccer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 19 May 2021 02:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/statsbomb/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       <guid>/post/2021/05/19/01-loading-statsbomb-data/</guid>
       <description>This file shows how to explore data from statsbomb. The statsbomb data is in &amp;ldquo;json&amp;rdquo; format. This specific script will teach you: 1) how to load json library 2) how load data using json library 3) how to extract data (of your interest) from the data file
 Tutorial import json #Load the competition file with open(&amp;#34;G:\\University of South Carolina\\HOW TO\\Static Site\\Hugo\\soccer_analytics\\data\\statsbomb\\competitions.json&amp;#34;) as f: competitions = json.load(f) #Womens World Cup 2019 has competition ID 72 competition_id=72 #Load the list of matches for this competition with open(&amp;#39;G:\\University of South Carolina\\HOW TO\\Static Site\\Hugo\\soccer_analytics\\data\\statsbomb\\matches\\&amp;#39;+str(competition_id)+&amp;#39;\\30.</description>
-    </item>
-    
-    <item>
-      <title>Tools for Soccer Analytics</title>
-      <link>/post/2020/10/26/tools-for-soccer-analytics/</link>
-      <pubDate>Mon, 26 Oct 2020 21:16:24 -0400</pubDate>
-      
-      <guid>/post/2020/10/26/tools-for-soccer-analytics/</guid>
-      <description>The aim of this blogpost is to document all the tools and resources that are necessary to start soccer analytics. I will point out here that Mr. Maias Mascioto&amp;rsquo;s github page has a more comprehensive collection of very very useful resources for data analytics. My intention is to add resource items as I learn and use them in my analysis. I am starting to explore the soccer analytics following the &amp;ldquo;Friends of Tracking&amp;rdquo; youtube channel.</description>
     </item>
     
   </channel>

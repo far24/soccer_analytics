@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>01: Loading StatsBomb Data  | FA Soccer</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+      <h1>FA Soccer</h1>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">01: Loading StatsBomb Data</span></h1>
+
+<h2 class="date">2021/05/19</h2>
+</div>
+
+<main>
+<p>This file shows how to explore data from statsbomb.
+The statsbomb data is in &ldquo;json&rdquo; format.
+This specific script will teach you:
+1) how to load json library
+2) how load data using json library
+3) how to extract data (of your interest) from the data file</p>
+<h2 id="tutorial">Tutorial</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> json
+
+<span style="color:#75715e">#Load the competition file</span>
+<span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;G:</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">University of South Carolina</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">HOW TO</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Static Site</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Hugo</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">soccer_analytics</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">data</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">statsbomb</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">competitions.json&#34;</span>) <span style="color:#66d9ef">as</span> f:
+    competitions <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>load(f)
+
+
+<span style="color:#75715e">#Womens World Cup 2019 has competition ID 72</span>
+competition_id<span style="color:#f92672">=</span><span style="color:#ae81ff">72</span>
+
+<span style="color:#75715e">#Load the list of matches for this competition</span>
+<span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;G:</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">University of South Carolina</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">HOW TO</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Static Site</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Hugo</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">soccer_analytics</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">data</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">statsbomb</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">matches</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span>str(competition_id)<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">30.json&#39;</span>) <span style="color:#66d9ef">as</span> f:
+    matches <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>load(f)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Print all match results</span>
+<span style="color:#66d9ef">for</span> match <span style="color:#f92672">in</span> matches:
+    home_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;home_team&#39;</span>][<span style="color:#e6db74">&#39;home_team_name&#39;</span>]
+    away_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;away_team&#39;</span>][<span style="color:#e6db74">&#39;away_team_name&#39;</span>]
+    home_score<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;home_score&#39;</span>]
+    away_score<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;away_score&#39;</span>]
+    describe_text <span style="color:#f92672">=</span> home_team_name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; [&#39;</span>  <span style="color:#f92672">+</span> str(home_score) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;-&#39;</span> <span style="color:#f92672">+</span> str(away_score) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;] &#39;</span> <span style="color:#f92672">+</span> away_team_name
+    <span style="color:#66d9ef">print</span>(describe_text)
+</code></pre></div><pre><code>Sweden Women's [1-0] Canada Women's
+Cameroon Women's [2-1] New Zealand Women's
+Germany Women's [3-0] Nigeria Women's
+England Women's [1-2] Sweden Women's
+Jamaica Women's [1-4] Australia Women's
+Italy Women's [0-2] Netherlands Women's
+France Women's [2-1] Brazil Women's
+Germany Women's [1-2] Sweden Women's
+England Women's [2-1] Scotland Women's
+Sweden Women's [5-1] Thailand Women's
+Japan Women's [0-2] England Women's
+Korea Republic Women's [1-2] Norway Women's
+United States Women's [3-0] Chile Women's
+Norway Women's [1-1] Australia Women's
+Norway Women's [3-0] Nigeria Women's
+United States Women's [2-0] Netherlands Women's
+China PR Women's [0-0] Spain Women's
+Italy Women's [0-1] Brazil Women's
+France Women's [4-0] Korea Republic Women's
+Germany Women's [1-0] China PR Women's
+Spain Women's [3-1] South Africa Women's
+Australia Women's [1-2] Italy Women's
+Brazil Women's [3-0] Jamaica Women's
+Canada Women's [1-0] Cameroon Women's
+Argentina Women's [0-0] Japan Women's
+France Women's [1-2] United States Women's
+New Zealand Women's [0-1] Netherlands Women's
+United States Women's [13-0] Thailand Women's
+Chile Women's [0-2] Sweden Women's
+Nigeria Women's [2-0] Korea Republic Women's
+France Women's [2-1] Norway Women's
+Germany Women's [1-0] Spain Women's
+South Africa Women's [0-1] China PR Women's
+Australia Women's [3-2] Brazil Women's
+England Women's [1-0] Argentina Women's
+Jamaica Women's [0-5] Italy Women's
+Japan Women's [2-1] Scotland Women's
+Netherlands Women's [3-1] Cameroon Women's
+Canada Women's [2-0] New Zealand Women's
+Nigeria Women's [0-1] France Women's
+South Africa Women's [0-4] Germany Women's
+Scotland Women's [3-3] Argentina Women's
+Thailand Women's [0-2] Chile Women's
+Netherlands Women's [2-1] Canada Women's
+Sweden Women's [0-2] United States Women's
+England Women's [3-0] Cameroon Women's
+Spain Women's [1-2] United States Women's
+Italy Women's [2-0] China PR Women's
+Netherlands Women's [2-1] Japan Women's
+Norway Women's [0-3] England Women's
+England Women's [1-2] United States Women's
+Netherlands Women's [1-0] Sweden Women's
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Now lets find a match we are interested in</span>
+home_team_required <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;England Women&#39;s&#34;</span>
+away_team_required <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sweden Women&#39;s&#34;</span>
+match_id_required <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">999</span>
+
+<span style="color:#66d9ef">for</span> match <span style="color:#f92672">in</span> matches:
+    home_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;home_team&#39;</span>][<span style="color:#e6db74">&#39;home_team_name&#39;</span>]
+    away_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;away_team&#39;</span>][<span style="color:#e6db74">&#39;away_team_name&#39;</span>]
+    <span style="color:#66d9ef">if</span> (home_team_name<span style="color:#f92672">==</span>home_team_required) <span style="color:#f92672">and</span> (away_team_name<span style="color:#f92672">==</span>away_team_required):
+        match_id_required <span style="color:#f92672">=</span> match[<span style="color:#e6db74">&#39;match_id&#39;</span>]
+
+<span style="color:#66d9ef">print</span>(home_team_required <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; vs &#39;</span> <span style="color:#f92672">+</span> away_team_required <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; has id:&#39;</span> <span style="color:#f92672">+</span> str(match_id_required))
+</code></pre></div><pre><code>England Women's vs Sweden Women's has id:69301
+</code></pre>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Edit the code above to print out the result list for the Mens World cup</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># find ID for FIFA World Cup  (i.e., Men&#39;s World Cup)</span>
+req_competition_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;FIFA World Cup&#34;</span>
+competition_id<span style="color:#f92672">=-</span><span style="color:#ae81ff">999</span>
+
+<span style="color:#66d9ef">for</span> competition <span style="color:#f92672">in</span> competitions:
+    <span style="color:#66d9ef">if</span> (competition[<span style="color:#e6db74">&#39;competition_name&#39;</span>] <span style="color:#f92672">==</span> req_competition_name):
+        competition_id <span style="color:#f92672">=</span> competition[<span style="color:#e6db74">&#39;competition_id&#39;</span>]
+       
+<span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;Competition ID for Men&#39;s WC: {competition_id}&#34;</span>)
+
+<span style="color:#75715e">#Load the list of matches for Men&#39;s WC competition</span>
+<span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;G:</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">University of South Carolina</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">HOW TO</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Static Site</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Hugo</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">soccer_analytics</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">data</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">statsbomb</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">matches</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span>str(competition_id)<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">3.json&#39;</span>) <span style="color:#66d9ef">as</span> f:
+    matches <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>load(f)        
+
+
+<span style="color:#75715e">#Print all match results</span>
+<span style="color:#66d9ef">for</span> match <span style="color:#f92672">in</span> matches:
+    home_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;home_team&#39;</span>][<span style="color:#e6db74">&#39;home_team_name&#39;</span>]
+    away_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;away_team&#39;</span>][<span style="color:#e6db74">&#39;away_team_name&#39;</span>]
+    home_score<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;home_score&#39;</span>]
+    away_score<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;away_score&#39;</span>]
+    describe_text <span style="color:#f92672">=</span> home_team_name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; [&#34;</span> <span style="color:#f92672">+</span> str(home_score) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;-&#39;</span> <span style="color:#f92672">+</span> str(away_score) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;] &#34;</span> <span style="color:#f92672">+</span>  away_team_name
+    <span style="color:#66d9ef">print</span>(describe_text)
+</code></pre></div><pre><code>Competition ID for Men's WC: 43
+Croatia [1-1] Denmark
+Nigeria [2-0] Iceland
+Poland [0-3] Colombia
+Croatia [2-0] Nigeria
+Brazil [2-0] Costa Rica
+Germany [0-1] Mexico
+Australia [0-2] Peru
+Serbia [0-2] Brazil
+Senegal [0-1] Colombia
+Panama [1-2] Tunisia
+Switzerland [2-2] Costa Rica
+France [2-1] Australia
+Uruguay [3-0] Russia
+Brazil [2-0] Mexico
+Russia [2-2] Croatia
+Denmark [1-1] Australia
+Costa Rica [0-1] Serbia
+France [1-0] Peru
+Belgium [3-2] Japan
+Belgium [3-0] Panama
+Argentina [0-3] Croatia
+France [4-3] Argentina
+Brazil [1-2] Belgium
+Uruguay [0-2] France
+France [4-2] Croatia
+Iceland [1-2] Croatia
+Poland [1-2] Senegal
+Denmark [0-0] France
+Egypt [0-1] Uruguay
+Argentina [1-1] Iceland
+Spain [1-1] Russia
+Belgium [5-2] Tunisia
+Peru [0-1] Denmark
+Uruguay [1-0] Saudi Arabia
+South Korea [1-2] Mexico
+Spain [2-2] Morocco
+Brazil [1-1] Switzerland
+Nigeria [1-2] Argentina
+Japan [2-2] Senegal
+Saudi Arabia [2-1] Egypt
+Uruguay [2-1] Portugal
+Japan [0-1] Poland
+Morocco [0-1] Iran
+Iran [0-1] Spain
+Russia [5-0] Saudi Arabia
+Sweden [1-0] South Korea
+Portugal [3-3] Spain
+Portugal [1-0] Morocco
+Mexico [0-3] Sweden
+Iran [1-1] Portugal
+England [6-1] Panama
+England [0-1] Belgium
+Colombia [1-1] England
+Sweden [1-0] Switzerland
+Croatia [2-1] England
+Sweden [0-2] England
+South Korea [2-0] Germany
+Colombia [1-2] Japan
+France [1-0] Belgium
+Belgium [2-0] England
+Russia [3-1] Egypt
+Germany [2-1] Sweden
+Serbia [1-2] Switzerland
+Tunisia [1-2] England
+</code></pre>
+<ol start="2">
+<li>Edit the code above to find the ID for England vs. Sweden</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">home_team_required <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;England&#34;</span>
+away_team_required <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sweden&#34;</span>
+match_id_required <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">999</span>
+
+<span style="color:#66d9ef">for</span> match <span style="color:#f92672">in</span> matches:
+    home_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;home_team&#39;</span>][<span style="color:#e6db74">&#39;home_team_name&#39;</span>]
+    away_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;away_team&#39;</span>][<span style="color:#e6db74">&#39;away_team_name&#39;</span>]
+    <span style="color:#66d9ef">if</span> (home_team_name<span style="color:#f92672">==</span>home_team_required) <span style="color:#f92672">and</span> (away_team_name<span style="color:#f92672">==</span>away_team_required) <span style="color:#f92672">or</span>(away_team_name<span style="color:#f92672">==</span>home_team_required) <span style="color:#f92672">and</span> (home_team_name<span style="color:#f92672">==</span>away_team_required) :
+        match_id_required <span style="color:#f92672">=</span> match[<span style="color:#e6db74">&#39;match_id&#39;</span>]
+
+<span style="color:#66d9ef">print</span>(home_team_required <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; vs &#39;</span> <span style="color:#f92672">+</span> away_team_required <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; has id: &#39;</span> <span style="color:#f92672">+</span> str(match_id_required))
+
+</code></pre></div><pre><code>England vs Sweden has id: 8651
+</code></pre>
+<ol start="3">
+<li>Write new code to write out a list of just Sweden&rsquo;s results in the tournament.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Print all match results</span>
+team_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Sweden&#34;</span>
+
+<span style="color:#66d9ef">for</span> match <span style="color:#f92672">in</span> matches:
+    home_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;home_team&#39;</span>][<span style="color:#e6db74">&#39;home_team_name&#39;</span>]
+    away_team_name<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;away_team&#39;</span>][<span style="color:#e6db74">&#39;away_team_name&#39;</span>]
+    <span style="color:#66d9ef">if</span> home_team_name <span style="color:#f92672">==</span>  team_name <span style="color:#f92672">or</span> away_team_name <span style="color:#f92672">==</span> team_name: 
+        home_score<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;home_score&#39;</span>]
+        away_score<span style="color:#f92672">=</span>match[<span style="color:#e6db74">&#39;away_score&#39;</span>]
+        describe_text <span style="color:#f92672">=</span> home_team_name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; [&#34;</span> <span style="color:#f92672">+</span> str(home_score) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;-&#39;</span> <span style="color:#f92672">+</span> str(away_score) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;] &#34;</span> <span style="color:#f92672">+</span>  away_team_name
+        <span style="color:#66d9ef">print</span>(describe_text)
+
+</code></pre></div><pre><code>Sweden [1-0] South Korea
+Mexico [0-3] Sweden
+Sweden [1-0] Switzerland
+Sweden [0-2] England
+Germany [2-1] Sweden
+</code></pre>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  © Fahim Ahmed 2020 | <a href="https://github.com/far24">Github</a> | <a href="https://twitter.com/apitaph">Twitter</a>
+  
+  </footer>
+  </body>
+</html>
+
