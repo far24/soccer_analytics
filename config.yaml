@@ -29,7 +29,7 @@ menu:
       url: "index.xml"
 
 params:
-  description: "A website built through Hugo and blogdown."
+  description: "A website soccer analytics."
   footer: "&copy; Fahim Ahmed 2020 | [Github](https://github.com/far24) | [Twitter](https://twitter.com/apitaph)"
 
 markup:
