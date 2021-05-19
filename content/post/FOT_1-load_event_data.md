@@ -15,7 +15,7 @@ This specific script will teach you:
 ## Tutorial
 
 
-```python
+```
 import json
 
 #Load the competition file
@@ -32,7 +32,7 @@ with open('G:\\University of South Carolina\\HOW TO\\Static Site\\Hugo\\soccer_a
 ```
 
 
-```python
+```
 #Print all match results
 for match in matches:
     home_team_name=match['home_team']['home_team_name']
@@ -98,7 +98,7 @@ for match in matches:
     
 
 
-```python
+```
 #Now lets find a match we are interested in
 home_team_required ="England Women's"
 away_team_required ="Sweden Women's"
@@ -121,7 +121,7 @@ print(home_team_required + ' vs ' + away_team_required + ' has id:' + str(match_
 1. Edit the code above to print out the result list for the Mens World cup 
 
 
-```python
+```
 # find ID for FIFA World Cup  (i.e., Men's World Cup)
 req_competition_name = "FIFA World Cup"
 competition_id=-999
@@ -147,71 +147,71 @@ for match in matches:
     print(describe_text)
 ```
 
-Competition ID for Men's WC: 43
-Croatia [1-1] Denmark
-Nigeria [2-0] Iceland
-Poland [0-3] Colombia
-Croatia [2-0] Nigeria
-Brazil [2-0] Costa Rica
-Germany [0-1] Mexico
-Australia [0-2] Peru
-Serbia [0-2] Brazil
-Senegal [0-1] Colombia
-Panama [1-2] Tunisia
-Switzerland [2-2] Costa Rica
-France [2-1] Australia
-Uruguay [3-0] Russia
-Brazil [2-0] Mexico
-Russia [2-2] Croatia
-Denmark [1-1] Australia
-Costa Rica [0-1] Serbia
-France [1-0] Peru
-Belgium [3-2] Japan
-Belgium [3-0] Panama
-Argentina [0-3] Croatia
-France [4-3] Argentina
-Brazil [1-2] Belgium
-Uruguay [0-2] France
-France [4-2] Croatia
-Iceland [1-2] Croatia
-Poland [1-2] Senegal
-Denmark [0-0] France
-Egypt [0-1] Uruguay
-Argentina [1-1] Iceland
-Spain [1-1] Russia
-Belgium [5-2] Tunisia
-Peru [0-1] Denmark
-Uruguay [1-0] Saudi Arabia
-South Korea [1-2] Mexico
-Spain [2-2] Morocco
-Brazil [1-1] Switzerland
-Nigeria [1-2] Argentina
-Japan [2-2] Senegal
-Saudi Arabia [2-1] Egypt
-Uruguay [2-1] Portugal
-Japan [0-1] Poland
-Morocco [0-1] Iran
-Iran [0-1] Spain
-Russia [5-0] Saudi Arabia
-Sweden [1-0] South Korea
-Portugal [3-3] Spain
-Portugal [1-0] Morocco
-Mexico [0-3] Sweden
-Iran [1-1] Portugal
-England [6-1] Panama
-England [0-1] Belgium
-Colombia [1-1] England
-Sweden [1-0] Switzerland
-Croatia [2-1] England
-Sweden [0-2] England
-South Korea [2-0] Germany
-Colombia [1-2] Japan
-France [1-0] Belgium
-Belgium [2-0] England
-Russia [3-1] Egypt
-Germany [2-1] Sweden
-Serbia [1-2] Switzerland
-Tunisia [1-2] England
+	Competition ID for Men's WC: 43
+	Croatia [1-1] Denmark
+	Nigeria [2-0] Iceland
+	Poland [0-3] Colombia
+	Croatia [2-0] Nigeria
+	Brazil [2-0] Costa Rica
+	Germany [0-1] Mexico
+	Australia [0-2] Peru
+	Serbia [0-2] Brazil
+	Senegal [0-1] Colombia
+	Panama [1-2] Tunisia
+	Switzerland [2-2] Costa Rica
+	France [2-1] Australia
+	Uruguay [3-0] Russia
+	Brazil [2-0] Mexico
+	Russia [2-2] Croatia
+	Denmark [1-1] Australia
+	Costa Rica [0-1] Serbia
+	France [1-0] Peru
+	Belgium [3-2] Japan
+	Belgium [3-0] Panama
+	Argentina [0-3] Croatia
+	France [4-3] Argentina
+	Brazil [1-2] Belgium
+	Uruguay [0-2] France
+	France [4-2] Croatia
+	Iceland [1-2] Croatia
+	Poland [1-2] Senegal
+	Denmark [0-0] France
+	Egypt [0-1] Uruguay
+	Argentina [1-1] Iceland
+	Spain [1-1] Russia
+	Belgium [5-2] Tunisia
+	Peru [0-1] Denmark
+	Uruguay [1-0] Saudi Arabia
+	South Korea [1-2] Mexico
+	Spain [2-2] Morocco
+	Brazil [1-1] Switzerland
+	Nigeria [1-2] Argentina
+	Japan [2-2] Senegal
+	Saudi Arabia [2-1] Egypt
+	Uruguay [2-1] Portugal
+	Japan [0-1] Poland
+	Morocco [0-1] Iran
+	Iran [0-1] Spain
+	Russia [5-0] Saudi Arabia
+	Sweden [1-0] South Korea
+	Portugal [3-3] Spain
+	Portugal [1-0] Morocco
+	Mexico [0-3] Sweden
+	Iran [1-1] Portugal
+	England [6-1] Panama
+	England [0-1] Belgium
+	Colombia [1-1] England
+	Sweden [1-0] Switzerland
+	Croatia [2-1] England
+	Sweden [0-2] England
+	South Korea [2-0] Germany
+	Colombia [1-2] Japan
+	France [1-0] Belgium
+	Belgium [2-0] England
+	Russia [3-1] Egypt
+	Germany [2-1] Sweden
+	Serbia [1-2] Switzerland
+	Tunisia [1-2] England
     
 
 2. Edit the code above to find the ID for England vs. Sweden
